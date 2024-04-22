@@ -139,3 +139,32 @@ export const getAllPatients = async() =>{
   toast.dismiss(toastId)
     return result
 }
+
+
+export const AddPatientsDetails = async (formData,token,navigate) =>{
+  let result =null
+  const toastId = toast.loading("Loading..");
+  console.log(formData)
+  try{
+    const response = await apiConnector("POST","http://localhost:4000/api/v1/patients/registerPatients",formData,
+    {    
+      Authorization: `${token}`
+    }
+  )
+  console.log("check respo");
+
+  if (!response?.data?.success) {
+    throw new Error("Could Not Add Lecture")
+     }
+     toast.success("Data Added")
+     console.log("lol....",response?.data)
+     result = response?.data?.data
+     navigate("/dashboard/patients")
+  }
+  catch(error){
+    console.log("AddPatientsDetails api error ............", error)
+    toast.error(error.message)
+  }
+  toast.dismiss(toastId)
+  return result
+}

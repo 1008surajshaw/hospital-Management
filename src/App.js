@@ -8,6 +8,7 @@ import Error from "./pages/Error"
 import Home from "./pages/Home "
 import VerifyEmail from "./pages/VerifyEmail"
 import Dashboard from "./pages/Dashboard";
+import Form from "./components/Form"
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
 
     
       <Route path="dashboard/patients" element={<Dashboard />} />
+      <Route path="dashboard/add"  element={<Form/>}/>
       {/* {
         user?.accountType === ACCOUNT_TYPE.Doctor && (
           <>

@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
         return children
     }
     else{
-        return <Navigate to={"/dashboard/my-profile"}/>
+        return <Navigate to={"/dashboard/patients"}/>
     }
 }
 export default OpenRouter
